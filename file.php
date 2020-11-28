@@ -3,7 +3,7 @@
 */
 
 // LearnDash statistic page question control start here.
-//
+
 add_action( 'admin_menu', 'extra_post_info_menu' );  function extra_post_info_menu(){    
 	$page_title = 'WordPress Extra Post Info';  
 	$menu_title = 'LearnDash Question Control'; 
@@ -61,7 +61,8 @@ add_filter(
 		// May add any custom logic using $question_data, $quiz, $http_post_data.
 	$extra_info = get_option( 'extra_post_info' );
 		if (  $extra_info == "hide" || $extra_info == "Hide" || $extra_info == "HIDE" ) {
-			 if( current_user_can('subscriber')) {
+		//In the case that you are using a custom user role for your user E.G 'student' you need to replace 'subscriber' with it.	 
+            if( current_user_can('subscriber')) {
 			$question_data['questionName'] = null;
                  
   //Below is a custom style echo for a specific website it not needed
